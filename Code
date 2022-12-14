@@ -1,0 +1,128 @@
+#include <iostream>
+using namespace std;
+
+struct Bank {
+ int accountNumber;
+ string name;
+ int balance;
+};
+
+int main() {
+ Bank accounts[3];
+ 
+ accounts[0].accountNumber = {111};
+ accounts[0].name = "Charls";
+ accounts[0].balance = {75000};
+ 
+ accounts[1].accountNumber = {222};
+ accounts[1].name = "Jaevier";
+ accounts[1].balance = {78000};
+ 
+ accounts[2].accountNumber = {333};
+ accounts[2].name = "Chelle";
+ accounts[2].balance = {80000};
+ 
+ cout << "\t-----CHARLS BANK SYSTEM-----" <<endl;
+ 
+ int choice;
+ 
+ do 
+ {
+  
+  cout << "\nWelcome to the bank system. Please make a choice." << endl;
+  cout << "[1] Display All" << endl;
+  cout << "[2] By Account No" << endl;
+  cout << "[3] Deposit" << endl;
+  cout << "[4] Withdraw" << endl;
+  cout << "[5] Exit" << endl;
+  cout << "Enter your choice: ";
+  cin >> choice;
+  
+     switch(choice)
+     {
+        case 1:
+        for (int i = 0; i < 3; i++) 
+        {
+        cout << "\nAccount Number: " << accounts[i].accountNumber << endl;
+        cout << "Name: " << accounts[i].name << endl;
+        cout << "Balance: " << accounts[i].balance << endl;
+        }
+        break;
+        
+        case 2:
+        {
+        int accountNumber;
+        cout << "Account Number? ";
+        cin >> accountNumber;
+        for (int i = 0; i < 3; i++) 
+        {
+        if (accounts[i].accountNumber == accountNumber) 
+        {
+        cout << "\nAccount Number: " << accounts[i].accountNumber << endl;
+        cout << "Name: " << accounts[i].name << endl;
+        cout << "Balance: " << accounts[i].balance << endl;
+            }
+        }
+        break;
+        }
+        
+        case 3:
+        {
+        int accountNumber;
+        cout << "\nEnter your Account Number to Deposit Amount: ";
+        cin >> accountNumber;
+        for (int i = 0; i < 3; i++) 
+        {
+        if (accounts[i].accountNumber == accountNumber) 
+        {
+        cout << "Account Number: " << accounts[i].accountNumber << endl;
+        cout << "Name: " << accounts[i].name << endl;
+        cout << "Balance: " << accounts[i].balance << endl;
+        int deposit;
+        cout << "Enter amount. You want to deposit? ";
+        cin >> deposit;
+        accounts[i].balance += deposit;
+        cout << "DEPOSIT SUCCESSFUL!" << endl;
+        cout << "YOUR NEW BALANCE IS: " << accounts[i].balance << endl;
+            }
+        }
+        break;
+        }
+        
+        case 4:
+        {
+        int accountNumber;
+        cout << "\nEnter your Account Number to Withdraw Amount: ";
+        cin >> accountNumber;
+        for (int i = 0; i < 3; i++) 
+        {
+        if (accounts[i].accountNumber == accountNumber) 
+        {
+        cout << "Account Number: " << accounts[i].accountNumber << endl;
+        cout << "Name: " << accounts[i].name << endl;
+        cout << "Balance: " << accounts[i].balance << endl;
+        int withdraw;
+        cout << "\nEnter amount. You want to withdraw? ";
+        cin >> withdraw;
+        accounts[i].balance -= withdraw;
+        cout << "WITHDRAW SUCCESSFUL!" << endl;
+        cout << "YOUR NEW BALANCE IS: " << accounts[i].balance << endl;
+            }
+        }
+        break;
+        }
+        case 5:
+        { 
+        cout << "Thank you! for using our bank system." << endl; 
+        break; 
+        } 
+        default: 
+        { 
+        cout << "Invalid choice." << endl; 
+        break;
+        }
+     }
+ } 
+ while (choice != 5);
+ return 0;
+}
